@@ -4,5 +4,6 @@ from entradas import views
 app_name = 'entradas'
 
 urlpatterns = [
-    path('',views.index,name='index'),
+    path('hola/',views.index,name='index'),
+    path('comprar-entradas/',views.sacar_entradas,name='entradas'),
 ]

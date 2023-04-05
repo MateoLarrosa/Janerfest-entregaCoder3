@@ -6,3 +6,6 @@ from django.template import Template,Context,loader
 
 def index(request):
     return render(request,r'entradas/index.html')
+
+def sacar_entradas(request):
+    return render(request,r'entradas/comprar_entradas.html')
