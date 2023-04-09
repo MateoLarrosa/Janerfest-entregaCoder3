@@ -1,0 +1,35 @@
+{% extends 'genericos/base.html' %}
+{% load static %}
+
+{%block title%}
+    <title>clientes</title>
+{%endblock title%}
+
+{%block h1%}
+<h1 class="text-white font-weight-bold">clientes</h1>
+{%endblock h1%}
+
+{%block subtitle%}
+<p class="text-white-75 mb-5">listado de clientes</p>
+<a class="btn btn-primary btn-xl" href="#contact">mira los clientes</a>
+{%endblock subtitle%}
+
+
+{%block about%}
+    <p>
+        <form action="{% url 'entradas:lista-clientes' %}">
+            {{formulario}}
+            <button>buscar</button>
+        </form>
+    </p>
+    {{clientes}}
+    {% if clientes %}
+     
+    {% for clientes in clientes %}
+        <li>
+            nombre: {{clientes.nombre}} - mail: {{clientes.mail}}
+        </li>
+    {% endfor %}
+
+    {% endif %}
+{%endblock about%}

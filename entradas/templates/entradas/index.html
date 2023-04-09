@@ -5,4 +5,70 @@
     <title>inicio</title>
 {%endblock title%}
 
+{%block h1%}
+<h1 class="text-white font-weight-bold">inicio</h1>
+{%endblock h1%}
+
+
+{%block subtitle%}
+<p class="text-white-75 mb-5">segunda edicion del festival mas esperado por los chicos</p>
+<a class="btn btn-primary btn-xl" href="{% url 'entradas:entradas' %}">Saca tus entradas aca!!!</a>
+{%endblock subtitle%}
+
+{%block about%}
+<style>
+.sponsors {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 20px;
+    margin: 10px;
+}
+.sponsor {
+    background-color: #eee;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.sponsor img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+</style>
+<section class="sponsors">
+    <div class="sponsor">
+        <img src="../../static/entradas/js/assets/img/head.jpg" alt="Logo del sponsor 1">
+        <h4>Sponsor 1</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, repellat.</p>
+    </div>
+    <div class="sponsor">
+        <img src="../../static/entradas/js/assets/img/head.jpg" alt="Logo del sponsor 2">
+        <h4>Sponsor 2</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, at.</p>
+    </div>
+    <div class="sponsor">
+        <img src="../../static/entradas/js/assets/img/head.jpg" alt="Logo del sponsor 3">
+        <h4>Sponsor 3</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, at.</p>
+    </div>
+    <div class="sponsor">
+        <img src="../../static/entradas/js/assets/img/head.jpg" alt="Logo del sponsor 4">
+        <h4>Sponsor 4</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, at.</p>
+    </div>
+    <div class="sponsor">
+        <img src="../../static/entradas/js/assets/img/head.jpg" alt="Logo del sponsor 5">
+        <h4>Sponsor 5</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, at.</p>
+    </div>
+    <div class="sponsor">
+        <img src="../../static/entradas/js/assets/img/head.jpg" alt="Logo del sponsor 6">
+        <h4>Sponsor 6</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, at.</p>
+    </div>
+</section>
+{%endblock about%}
 
