@@ -17,7 +17,7 @@ def sacar_entradas(request):
         if formulario.is_valid():
             datos_correctos = formulario.cleaned_data
                         
-        cliente = Cliente(nombre=datos_correctos.POST['nombre'], mail = datos_correctos.POST['mail'], cant_entradas= datos_correctos.POST['cant_entradas'])
+        cliente = Cliente(nombre=datos_correctos.POST['nombre'], mail = datos_correctos.POST['mail'], cant_entradas= datos_correctos.POST['cant_entradas'], hijos_participantes= datos_correctos.POST['hijos_participantes'])
         cliente.save()
         
         return redirect('entradas:lista-clientes')
@@ -37,7 +37,6 @@ def lista_clientes(request):
     formulario_busqueda = BuscarCliente()
     return render(request,r'entradas/lista_clientes.html',{'clientes':clientes,'formulario':formulario_busqueda})
 
-    
 
 def quienes_somos(request):
     return render(request,r'entradas/quienes_somos.html')
