@@ -11,14 +11,82 @@
 
 {%block subtitle%}
 <p class="text-white-75 mb-5">Compra tus entradas y recibilas por mail al instante</p>
-<a class="btn btn-primary btn-xl" href="#contact">Saca tus entradas aca!!!</a>
+<a id="subtitle-button" class="btn btn-primary btn-xl" href="#contact">Saca tus entradas aca!!!</a>
+<style>
+#subtitle-button{
+background-color: #8d8e8d;
+}
+.divider{
+    color: #3e8e41;
+}
+</style>
 {%endblock subtitle%}
 
 
-{%block about%}
+
+
+{% block about %}
+  <div id="div-container">
     <form id="contact" action="{% url 'entradas:entradas' %}" method="POST">
         {% csrf_token %}
-        {{formulario}}
-        <button>enviar</button>
-    </form>        
-{%endblock about%}
+        <h2>Crear cliente</h2>
+        {{ formulario.nombre.label_tag }}
+        {{ formulario.nombre }}
+        {{ formulario.mail.label_tag }}
+        {{ formulario.mail }}
+        {{ formulario.cant_entradas.label_tag }}
+        {{ formulario.cant_entradas }}
+        {{ formulario.hijos_participantes.label_tag }}
+        {{ formulario.hijos_participantes }}
+        <button>Crear</button>
+      </form>
+  </div>   
+  <style>
+    #div-container {
+    background-color: #ffffff;
+    padding: 30px;
+    }
+
+    #contact {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: #f2f2f2;
+        padding: 20px;
+        border-radius: 20px;
+      }
+      
+      #contact h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      #contact label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      
+      #contact input[type="text"],
+      #contact input[type="email"],
+      #contact input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 3px;
+      }
+      
+      #contact button {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      
+      #contact button:hover {
+        background-color: #3e8e41;
+      }
+      
+  </style>     
+{% endblock about %}

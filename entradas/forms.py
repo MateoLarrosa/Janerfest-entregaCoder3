@@ -1,12 +1,12 @@
-from django import froms
+from django import forms
 
-class CreacionClienteFormulario(forms.form):
-    nombre = forms.CharField(max_length=20)
-    mail = forms.CharField(max_length=40)
-    cant_entradas = forms.IntergerField()
-    hijos_participantes = form.CharField(max_length=2)
+class CreacionClienteFormulario(forms.Form):
+    nombre = forms.CharField(max_length=20,widget=forms.TextInput(attrs={'placeholder': 'Inrese su nombre'}))
+    mail = forms.CharField(max_length=40,widget=forms.TextInput(attrs={'placeholder': 'Inrese su mail'}))
+    cant_entradas = forms.IntegerField()
+    hijos_participantes = forms.CharField(max_length=2,widget=forms.TextInput(attrs={'placeholder': 'Ingrese si-no'}))
 
-class BuscarCliente(forms.form):
-    nombre = forms.CharField(max_length=20)
-    hijos_participantes = forms.CharField(max_length=2)
-    cant_entradas = forms.IntergerField()
+class BuscarCliente(forms.Form):
+    nombre = forms.CharField(max_length=20,required=False)
+    hijos_participantes = forms.CharField(max_length=2,required=False)
+    cant_entradas = forms.IntegerField(required=False)

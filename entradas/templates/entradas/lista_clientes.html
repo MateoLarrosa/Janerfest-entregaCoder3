@@ -25,11 +25,12 @@
     {{clientes}}
     {% if clientes %}
      
-    {% for clientes in clientes %}
+    {% for cliente in clientes %}
         <li>
-            nombre: {{clientes.nombre}} - mail: {{clientes.mail}}
+            nombre: {{cliente.nombre}} - mail: {{cliente.mail}}
         </li>
     {% endfor %}
-
+    {%else%}
+    <h2>no hay datos que coincidan con su busqueda</h2>
     {% endif %}
 {%endblock about%}
