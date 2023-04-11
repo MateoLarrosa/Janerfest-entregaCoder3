@@ -1,5 +1,5 @@
 # Janerfest-entregaCoder3
-para acceder a la pagina web vas a tener que ingresar en la URL a continuacion de "http://127.0.0.1:8000/" lo siguiente = "entradas/".
+para acceder a la pagina web, vas a tener que ingresar en la URL a continuacion de "http://127.0.0.1:8000/" lo siguiente = "entradas/".
 Esta pagina web esta creada con el fin de sacar entradas para un festival escolar.
 Tambien tiene otros apartados para conocer a sus creadores y a sus sponsors pero se veran mas adelante.
 Para poder completar el formulario podes acceder al mismo de dos formas y con dos simples pasos.
