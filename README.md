@@ -1,4 +1,10 @@
 # Janerfest-entregaCoder3
+los pasos a seguir para poder acceder a la pagina web son lo siguientes:
+1- clonar este repositorio de github. Entras a la terminal de git y ejecutas el siguiente comando: git clone -----
+2- Cuando ya tengas el proyecto tendras que implementar los paquetes que se requieren (los cuales estan en el archivo "requeriments.txt") a tu entorno virtual.Lo haras ejecutando lo siguiente en la terminal  =  "pip install -r requeriments.txt".
+3- Levantar la base de datos: para poder levantar la base de datos tendras que ejecutar en la terminal el siguiente comando = "python manage.py migrate"
+4- Por ultimo para levantar el servidor y acceder a la web tendras que ejecutar en la terminal el siguiente comando = "py manage.py runserver"
+----------------------------------------------------------------------------------
 para acceder a la pagina web, vas a tener que ingresar en la URL a continuacion de "http://127.0.0.1:8000/" lo siguiente = "entradas/".
 Esta pagina web esta creada con el fin de sacar entradas para un festival escolar.
 Tambien tiene otros apartados para conocer a sus creadores y a sus sponsors pero se veran mas adelante.
