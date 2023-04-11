@@ -29,15 +29,8 @@ background-color: #8d8e8d;
   <div id="div-container">
     <form id="contact" action="{% url 'entradas:entradas' %}" method="POST">
         {% csrf_token %}
-        <h2>Crear cliente</h2>
-        {{ formulario.nombre.label_tag }}
-        {{ formulario.nombre }}
-        {{ formulario.mail.label_tag }}
-        {{ formulario.mail }}
-        {{ formulario.cant_entradas.label_tag }}
-        {{ formulario.cant_entradas }}
-        {{ formulario.hijos_participantes.label_tag }}
-        {{ formulario.hijos_participantes }}
+        <h2>Sacar entradas</h2>
+        {{formulario}}
         <button>Crear</button>
       </form>
   </div>   

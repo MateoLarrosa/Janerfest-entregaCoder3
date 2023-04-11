@@ -30,7 +30,7 @@ def lista_clientes(request):
     cliente_a_buscar = request.GET.get('nombre',None)
     
     if cliente_a_buscar:
-        clientes = Cliente.objects.filter(nombre_icontains=cliente_a_buscar)
+        clientes = Cliente.objects.filter(nombre__icontains=cliente_a_buscar)
     else:
         clientes = Cliente.objects.all()
         

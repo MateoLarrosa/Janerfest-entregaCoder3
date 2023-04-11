@@ -8,5 +8,5 @@ class CreacionClienteFormulario(forms.Form):
 
 class BuscarCliente(forms.Form):
     nombre = forms.CharField(max_length=20,required=False)
-    hijos_participantes = forms.CharField(max_length=2,required=False)
-    cant_entradas = forms.IntegerField(required=False)
+    #hijos_participantes = forms.CharField(max_length=2,required=False)
+    #cant_entradas = forms.IntegerField(required=False)

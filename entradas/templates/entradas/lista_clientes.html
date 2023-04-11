@@ -17,20 +17,24 @@
 
 {%block about%}
     <p>
-        <form action="{% url 'entradas:lista-clientes' %}">
+        <form id="contact" action="#contact">
+            <!-- {% url 'entradas:lista-clientes' %} -->
+            <h3>Ingrese su nombre para que lo busquemos en la base de datos</h3>
             {{formulario}}
             <button>buscar</button>
         </form>
     </p>
-    {{clientes}}
+    
     {% if clientes %}
-     
-    {% for cliente in clientes %}
-        <li>
-            nombre: {{cliente.nombre}} - mail: {{cliente.mail}}
-        </li>
-    {% endfor %}
+        {% for cliente in clientes %}
+            <p>Usted ya tiene asegurada su entrada!</p>
+            <ul>
+                <li>nombre: {{cliente.nombre}}</li>
+                <li>mail: {{cliente.mail}}</li>
+                <li>entradas compradas = {{cliente.cant_entradas}}</li>
+            </ul>
+        {% endfor %}
     {%else%}
-    <h2>no hay datos que coincidan con su busqueda</h2>
+    <p>no hay datos que coincidan con su busqueda, verifique bien el nombre con el que compro las entradas o si todavia no lo hizo vaya a la seccion de la misma</p>
     {% endif %}
 {%endblock about%}
