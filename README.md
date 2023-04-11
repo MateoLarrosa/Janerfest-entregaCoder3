@@ -11,7 +11,8 @@ los pasos a seguir para poder acceder a la pagina web son lo siguientes:
 4- Por ultimo para levantar el servidor y acceder a la web tendras que ejecutar en la terminal el siguiente comando = "py manage.py runserver"
 
 ----------------------------------------------------------------------------------
-para acceder a la pagina web, vas a tener que ingresar en la URL a continuacion de "http://127.0.0.1:8000/" lo siguiente = "entradas/".
+para acceder a la pagina web, vas a tener que ingresar a continuacion de la URL "http://127.0.0.1:8000/" lo siguiente = "entradas/".
+
 Esta pagina web esta creada con el fin de sacar entradas para un festival escolar.
 Tambien tiene otros apartados para conocer a sus creadores y a sus sponsors pero se veran mas adelante.
 Para poder completar el formulario podes acceder al mismo de dos formas y con dos simples pasos.
@@ -29,4 +30,4 @@ pasos obligatorios para poder complterar el formulario:
 
 4- si tiene un hijo/a que participa
 -----------------------------------------------------------------------------------
-Si desea consultar si se encuentra ya registrada para aseguarse sus entradas, una vez que complete el formulario y lo envie se la llevara al apartado de "clientes" donde usted podra por medio de tu nombre con el que te registraste para que puedas encontrarte en nuestra base de datos.
+Si desea consultar en que estado se encuentra su compra, una vez que complete el formulario y lo envie se la llevara al apartado de "mis entradas" donde usted podra por medio de su nombre con el que se registro saber en que estado se encuentra su compra. los estados pueden ser: "ASEGURADAS","YA ENVIADAS" o le puede aparecer que no esta en nuestra base de datos
