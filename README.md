@@ -1,5 +1,6 @@
 # Janerfest-entregaCoder3
 los pasos a seguir para poder acceder a la pagina web son lo siguientes:
+
 1- clonar este repositorio de github. Entras a la terminal de git y ejecutas el siguiente comando:
 "git clone https://github.com/MateoLarrosa/Janerfest-entregaCoder3.git"
 
@@ -14,6 +15,7 @@ para acceder a la pagina web, vas a tener que ingresar en la URL a continuacion 
 Esta pagina web esta creada con el fin de sacar entradas para un festival escolar.
 Tambien tiene otros apartados para conocer a sus creadores y a sus sponsors pero se veran mas adelante.
 Para poder completar el formulario podes acceder al mismo de dos formas y con dos simples pasos.
+
 1- en la pantalla de inicio clikear en el boton "+ info sobre entradas" que te lleva a la seccion de "entradas" o ir directamente desde la barra de navegacion de la web al apartado "entradas"
 
 2- clickea en el boton "saca tus entradas!!" que te lleva al formulario o scrolea para abajo.
