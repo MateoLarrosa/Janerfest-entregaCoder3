@@ -33,5 +33,4 @@ pasos obligatorios para poder complterar el formulario:
 
 4- si tiene un hijo/a que participa
 
------------------------------------------------------------------------------------
 Si desea consultar en que estado se encuentra su compra, una vez que complete el formulario y lo envie se la llevara al apartado de "mis entradas" donde usted podra por medio de su nombre con el que se registro saber en que estado se encuentra su compra. los estados pueden ser: "ASEGURADAS","YA ENVIADAS" o le puede aparecer que no esta en nuestra base de datos
