@@ -1,6 +1,8 @@
 # Janerfest-entregaCoder3
-los pasos a seguir para poder acceder a la pagina web son lo siguientes:
+-------------------------------------------------------------------------------------
 
+pasos a seguir para acceder a la pagina web
+--------------------------------------------------------------------------------------
 1- clonar este repositorio de github. Entras a la terminal de git y ejecutas el siguiente comando:
 "git clone https://github.com/MateoLarrosa/Janerfest-entregaCoder3.git"
 
@@ -10,6 +12,7 @@ los pasos a seguir para poder acceder a la pagina web son lo siguientes:
 
 4- Por ultimo para levantar el servidor y acceder a la web tendras que ejecutar en la terminal el siguiente comando = "py manage.py runserver"
 
+Acceso a la web
 ----------------------------------------------------------------------------------
 para acceder a la pagina web, vas a tener que ingresar a continuacion de la URL "http://127.0.0.1:8000/" lo siguiente = "entradas/".
 
@@ -29,5 +32,6 @@ pasos obligatorios para poder complterar el formulario:
 3-cant de entradas que quiera comprar
 
 4- si tiene un hijo/a que participa
+
 -----------------------------------------------------------------------------------
 Si desea consultar en que estado se encuentra su compra, una vez que complete el formulario y lo envie se la llevara al apartado de "mis entradas" donde usted podra por medio de su nombre con el que se registro saber en que estado se encuentra su compra. los estados pueden ser: "ASEGURADAS","YA ENVIADAS" o le puede aparecer que no esta en nuestra base de datos
