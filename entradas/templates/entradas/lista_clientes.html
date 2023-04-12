@@ -6,12 +6,12 @@
 {%endblock title%}
 
 {%block h1%}
-<h1 class="text-white font-weight-bold">clientes</h1>
+<h1 class="text-white font-weight-bold">Mis entradas</h1>
 {%endblock h1%}
 
 {%block subtitle%}
-<p class="text-white-75 mb-5">listado de clientes</p>
-<a class="btn btn-primary btn-xl" href="#contact">mira los clientes</a>
+<p class="text-white-75 mb-5">podes averiguar en que estado se encuentran tus entradas!</p>
+<a class="btn btn-primary btn-xl" href="#contact">clickea aca!!</a>
 {%endblock subtitle%}
 
 
@@ -27,14 +27,22 @@
     
     {% if clientes %}
         {% for cliente in clientes %}
-            <p>Usted ya tiene asegurada su entrada!</p>
+            <div id="Mensaje-consulta">
+                <p>Usted ya tiene {{cliente.cant_entradas}} entradas aseguradas, pronto le llegaran al mail! </p>
             <ul>
                 <li>nombre: {{cliente.nombre}}</li>
                 <li>mail: {{cliente.mail}}</li>
                 <li>entradas compradas = {{cliente.cant_entradas}}</li>
             </ul>
+            </div>
         {% endfor %}
     {%else%}
     <p>no hay datos que coincidan con su busqueda, verifique bien el nombre con el que compro las entradas o si todavia no lo hizo vaya a la seccion de la misma</p>
     {% endif %}
-{%endblock about%}
+
+    <style>
+    #Mensaje-consulta{
+        background-color: #c5d5c5;
+    }
+    </style>
+    {%endblock about%}

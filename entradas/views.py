@@ -32,7 +32,7 @@ def lista_clientes(request):
     if cliente_a_buscar:
         clientes = Cliente.objects.filter(nombre__icontains=cliente_a_buscar)
     else:
-        clientes = Cliente.objects.all()
+        clientes = print("esperando consulta...")
         
     formulario_busqueda = BuscarCliente()
     return render(request,r'entradas/lista_clientes.html',{'clientes':clientes,'formulario':formulario_busqueda})

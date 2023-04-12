@@ -9,4 +9,4 @@ class Cliente(models.Model):
     hijos_participantes = models.CharField(max_length=2)
 
     def __str__(self):
-        return f'Soy {self.nombre}, mi mail es {self.mail} y compre {self.cant_entradas} entradas'
+        return f'{self.nombre}. {self.cant_entradas} entradas compradas.'
