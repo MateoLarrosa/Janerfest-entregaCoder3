@@ -18,13 +18,12 @@
 {%block about%}
     <p>
         <form id="contact" action="#contact">
-            <!-- {% url 'entradas:lista-clientes' %} -->
-            <h3>Ingrese su nombre para que lo busquemos en la base de datos</h3>
+            <h4>Ingrese su nombre para que lo busquemos en la base de datos</h4>
             {{formulario}}
             <button>buscar</button>
         </form>
     </p>
-    
+
     {% if clientes %}
         {% for cliente in clientes %}
             <div id="Mensaje-consulta">
@@ -34,6 +33,18 @@
                 <li>mail: {{cliente.mail}}</li>
                 <li>entradas compradas = {{cliente.cant_entradas}}</li>
             </ul>
+            <div class="cancelar_compra">
+                <h4>Para cancelar la compra ingrese aqui: </h4>
+                <button><a class="navbar-brand" href={% url 'entradas:cancelar_compra' cliente.id %}>cancelar compra</a></button>
+            </div>
+            <div class="modificar_compra">
+                <h4>Si desea modificar algun dato de la compra ingrese aqui: </h4>
+                <button><a class="navbar-brand" href={% url 'entradas:modificar_compra' cliente.id %}>modificar compra</a></button>
+            </div>
+            <div class="mostrar_compra">
+                <h4>para ver con mas detalles su compra: </h4>
+                <button><a class="navbar-brand" href={% url 'entradas:mostrar_compra' cliente.id %}>mostrar compra</a></button>
+            </div>
             </div>
         {% endfor %}
     {%else%}

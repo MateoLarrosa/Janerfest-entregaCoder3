@@ -1,0 +1,85 @@
+{% extends 'genericos/base.html' %}
+{% load static %}
+
+{%block title%}
+    <title>janerfest-modificar datos</title>
+{%endblock title%}
+
+{%block h1%}
+<h1 class="text-white font-weight-bold">modificar datos de la compra</h1>
+{%endblock h1%}
+
+{%block subtitle%}
+<p class="text-white-75 mb-5">si queres cambiar algun dato de los que nos proporcionaste, poder hacerlo sin problemas</p>
+<a id="subtitle-button" class="btn btn-primary btn-xl" href="#contact">clickea para modificar tus datos de la compra</a>
+<style>
+#subtitle-button{
+background-color: #8d8e8d;
+}
+.divider{
+    color: #3e8e41;
+}
+</style>
+{%endblock subtitle%}
+
+
+
+
+{% block about %}
+  <div id="div-container">
+    <form id="contact" action={% url 'entradas:modificar_compra' cliente.id %} method="POST">
+        {% csrf_token %}
+        <h2>Modificar datos</h2>
+        {{form}}
+        <button>Modificar</button>
+      </form>
+  </div>   
+  <style>
+    #div-container {
+    background-color: #ffffff;
+    padding: 30px;
+    }
+
+    #contact {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: #f2f2f2;
+        padding: 20px;
+        border-radius: 20px;
+      }
+      
+      #contact h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      #contact label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      
+      #contact input[type="text"],
+      #contact input[type="email"],
+      #contact input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 3px;
+      }
+      
+      #contact button {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      
+      #contact button:hover {
+        background-color: #3e8e41;
+      }
+      
+  </style>     
+{% endblock about %}

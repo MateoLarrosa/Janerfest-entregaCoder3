@@ -6,16 +6,27 @@
 {%endblock title%}
 
 {%block h1%}
-<h1 class="text-white font-weight-bold">inicio</h1>
+<h1 class="text-white font-weight-bold">cerraste cesion correctamente</h1>
 {%endblock h1%}
 
 
 {%block subtitle%}
 <p class="text-white-75 mb-5">segunda edicion del festival mas esperado por los chicos</p>
-<a class="btn btn-primary btn-xl" href="{% url 'entradas:entradas' %}">+ info sobre las entradas</a>
+<a class="btn btn-primary btn-xl" href="{% url 'usuario:login' %}">incia sesion para visitar la pagina</a>
 {%endblock subtitle%}
+{%block nav%}
+{%endblock nav%}
 
 {%block about%}
+
+{% comment %} <form action={%url 'usuario:login' %} method="post">
+    {%csrf_token%}
+    <table>
+        {{form}}
+    </table>
+    <button>inciar sesion</button>
+</form> {% endcomment %}
+
 <style>
 .sponsors {
     display: grid;

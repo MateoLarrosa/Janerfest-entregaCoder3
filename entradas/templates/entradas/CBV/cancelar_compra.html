@@ -1,0 +1,37 @@
+{% extends 'genericos/base.html' %}
+{% load static %}
+
+{%block title%}
+    <title>janerfest-cancelar compra</title>
+{%endblock title%}
+
+{%block h1%}
+<h1 class="text-white font-weight-bold">Cancelar compra</h1>
+{%endblock h1%}
+
+{%block subtitle%}
+<p class="text-white-75 mb-5">Cancelá tu compra y te devolvemos el monto sin problemas</p>
+<a id="subtitle-button" class="btn btn-primary btn-xl" href="#contact">clickea para cancelar tu compra</a>
+<style>
+#subtitle-button{
+background-color: #8d8e8d;
+}
+.divider{
+    color: #3e8e41;
+}
+</style>
+{%endblock subtitle%}
+
+
+
+
+{% block about %}
+  <div id="div-container">
+    <form id="contact" action={% url 'entradas:cancelar_compra' cliente.id %} method="POST">
+        {% csrf_token %}
+        <h2>Cancelar compra</h2>
+        {{form}}
+        <button>CANCELAR</button>
+      </form>
+  </div>        
+{% endblock about %}

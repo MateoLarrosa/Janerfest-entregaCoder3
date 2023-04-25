@@ -1,0 +1,32 @@
+{% extends 'genericos/base.html' %}
+{% load static %}
+
+{%block title%}
+    <title>editar perfil</title>
+{%endblock title%}
+
+{%block h1%}
+<h1 class="text-white font-weight-bold">editar perfil</h1>
+{%endblock h1%}
+
+
+{%block subtitle%}
+<p class="text-white-75 mb-5">segunda edicion del festival mas esperado por los chicos</p>
+<a class="btn btn-primary btn-xl" href="#nav-login">Accede a tu cuenta para visitar la pagina</a>
+{%endblock subtitle%}
+
+{%block about%}
+{% if formulario.errors %}
+<p style="color: red">Hay  errores al querer modificar el formulario</p>
+{% endif %}
+<div id="nav-login">
+    <form action={%url 'usuario:editar_perfil' %} method="post" enctype = 'multipart/from-data'>
+        {%csrf_token%}
+        <table>
+            {{formulario}}
+        </table>
+        <button>editar</button>
+    </form>
+</div>
+{%endblock about%}
+

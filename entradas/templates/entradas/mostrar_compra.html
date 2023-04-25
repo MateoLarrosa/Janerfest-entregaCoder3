@@ -1,0 +1,56 @@
+
+{% extends 'genericos/base.html' %}
+{% load static %}
+
+{%block title%}
+    <title>clientes</title>
+{%endblock title%}
+
+{%block h1%}
+<h1 class="text-white font-weight-bold">Mis compras</h1>
+{%endblock h1%}
+
+{%block subtitle%}
+<p class="text-white-75 mb-5">Podes cancelar cualquiera de tus compras y se te devolverá el dinero</p>
+<a class="btn btn-primary btn-xl" href="#services">clickea aca para ver tus compras!!</a>
+{%endblock subtitle%}
+
+
+{%block about%}
+<section class="page-section" id="services">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center mt-0">Tus compras</h2>
+        <hr class="divider" />
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
+                    <h3 class="h4 mb-2">entradas</h3>
+                    <p class="text-muted mb-0">5</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
+                    <h3 class="h4 mb-2">consumiciones de bebidas</h3>
+                    <p class="text-muted mb-0">2 coca-cola</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
+                    <h3 class="h4 mb-2">consumiciones de comidas</h3>
+                    <p class="text-muted mb-0">2 hamburguesas</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
+                    <h3 class="h4 mb-2">merchandaising</h3>
+                    <p class="text-muted mb-0">2 remera y 2 gorras</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>  
+{%endblock about%}

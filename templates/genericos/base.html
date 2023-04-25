@@ -19,25 +19,34 @@
         <!-- SimpleLightbox plugin CSS-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'entradas/js/css/styles.css' %}" rel="stylesheet" />
+        <link href="{% static 'entradas/css/styles.css' %}" rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Janer fest</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'entradas:index' %}">inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'entradas:entradas' %}">entradas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'entradas:lista-clientes' %}">mis entradas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'entradas:quienes-somos' %}">quienes somos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">contactos</a></li>
-                    </ul>
-                </div>
+     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#page-top">Janer fest</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    
+                    {%if request.user.is_authenticated%}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'entradas:index' %}">inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'entradas:entradas' %}">entradas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'entradas:estado_entradas' %}">mis entradas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'entradas:quienes_somos' %}">quienes somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">contactos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{%url 'usuario:editar_perfil'%}">{{request.user.username}}</a></li>
+                    <li class="nav-item"><a class="nav-link" href= {%url 'usuario:logout'%}>cerrar sesión</a></li>
+                    {% elif not request.user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href= {%url 'usuario:login'%}>inicia sesion</a></li>
+                    <li class="nav-item"><a class="nav-link" href= {%url 'usuario:registro'%}>registrarse</a></li>
+                    {%endif%}
+                    
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
         <!-- Masthead-->
         <header class="masthead">
             <div class="container px-4 px-lg-5 h-100">
