@@ -1,0 +1,30 @@
+{% extends 'genericos/base.html' %}
+{% load static %}
+
+{%block title%}
+    <title>cambiar contraseña</title>
+{%endblock title%}
+
+{%block h1%}
+<h1 class="text-white font-weight-bold">cambiar contraseña</h1>
+{%endblock h1%}
+
+
+{%block subtitle%}
+<p class="text-white-75 mb-5">segunda edicion del festival mas esperado por los chicos</p>
+<a class="btn btn-primary btn-xl" href='#about'>cambia tu contraseña</a>
+{%endblock subtitle%}
+
+{%block about%}
+
+{%if form.errors%}
+<p style=red>hay errores</p>
+{%endif%}
+<form id="about" action={%url 'usuario:cambiar_contraseña' %} method="post">
+    {%csrf_token%}
+    <table>
+        {{form}}
+    </table>
+    <button>cambiar</button>
+</form>
+{%endblock about%}

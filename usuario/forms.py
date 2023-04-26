@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm,PasswordChangeForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
@@ -25,12 +25,19 @@ class MiFormularioDeCreacion(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
         help_texts = {k: '' for k in fields}
 
+
+class MiFormularioCambioContraseña(PasswordChangeForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        
+        # Modificar el campo new_password1 para eliminar la especificación de longitud
+        self.fields['new_password1'].help_text = None
+
 class EdicionPerfil(UserChangeForm):
     password = None
     email = forms.EmailField()
     first_name = forms.CharField(label = "Nombre", max_length=20)
     last_name = forms.CharField(label = "apellido", max_length=20)
-    
     avatar = forms.ImageField(required=False)
     
     class Meta:
