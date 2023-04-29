@@ -84,25 +84,26 @@ class EstadoDeEntradas(LoginRequiredMixin, ListView):
     model = Cliente
     template_name = "entradas/CBV/estado_de_entradas.html"
     success_url = '/entradas/'
-    fields = ['nombre']
-
-    def get_queryset(self):
-        # Obtener las instancias del modelo Cliente correspondientes al usuario logueado
-        return Cliente.objects.filter(user=self.request.user)
+    fields = ['nombre','created_at']
 
 
-    
-class ComprarEntradas(LoginRequiredMixin,CreateView):
+
+class ComprarEntradas(LoginRequiredMixin, CreateView):
     model = Cliente
     template_name = "entradas/CBV/comprar_entradas.html"
     success_url = '/entradas/'
-    fields = ['nombre','mail','cant_entradas','hijos_participantes']
+    fields = ['nombre', 'mail', 'cant_entradas', 'opinion','metodo_pago']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
     
 class ModificarCompra(LoginRequiredMixin,UpdateView):
     model = Cliente
     template_name = "entradas/CBV/modificar_compra.html"
     success_url ='/entradas/'
-    fields = ['nombre','mail','cant_entradas','hijos_participantes']
+    fields = ['nombre','mail','cant_entradas','opinion']
     
 class CancelarCompra(LoginRequiredMixin,DeleteView):
     model = Cliente

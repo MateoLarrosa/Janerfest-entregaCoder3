@@ -27,12 +27,13 @@
     {% if clientes %}
         {% for cliente in clientes %}
             <div id="Mensaje-consulta">
-                <p>Usted ya tiene {{cliente.cant_entradas}} entradas aseguradas, pronto le llegaran al mail! </p>
             <ul>
                 <li>nombre: {{cliente.nombre}}</li>
                 <li>mail: {{cliente.mail}}</li>
                 <li>entradas compradas = {{cliente.cant_entradas}}</li>
+                <li>fecha de compra = {{cliente.created_at}}</li>
             </ul>
+            <p>Usted compro {{cliente.cant_entradas}} entradas el {{cliente.created_at}} </p>
             <div class="cancelar_compra">
                 <h4>Para cancelar la compra ingrese aqui: </h4>
                 <button><a class="navbar-brand" href={% url 'entradas:cancelar_compra' cliente.id %}>cancelar compra</a></button>
@@ -48,7 +49,7 @@
             </div>
         {% endfor %}
     {%else%}
-    <p>no hay datos que coincidan con su busqueda, verifique bien el nombre con el que compro las entradas o si todavia no lo hizo vaya a la seccion de la misma</p>
+    <p>No tiene compras realizadas hasta el momento</p>
     {% endif %}
 
     <style>
