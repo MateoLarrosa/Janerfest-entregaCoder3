@@ -29,6 +29,8 @@ background-color: #8d8e8d;
   <div id="div-container">
     <form id="contact" action="{% url 'entradas:entradas' %}" method="POST">
         {% csrf_token %}
+        
+        <h4>Nos gustaria que al final de la compra nos des tu opinion sobre la edicion 2022 del festival y como lo viviste.Si no asististe podes contarnos quien te informó sobre el festival y porque queres venir a esta edición.</h4>
         <h2>Sacar entradas</h2>
         {{form}}
         <br>
