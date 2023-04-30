@@ -15,11 +15,16 @@ pasos a seguir para acceder a la pagina web
 Acceso a la web
 ----------------------------------------------------------------------------------
 para acceder a la pagina web, vas a tener que ingresar a continuacion de la URL "http://127.0.0.1:8000/" lo siguiente = "entradas/".
+Cuando entre se le pedirá que inicie sesión o se registre para poder navegar por la página web. Una vez que lo haga podra disfrutar de lo siguiente:
 
 Esta pagina web esta creada con el fin de sacar entradas para un festival escolar.
-Tambien tiene otros apartados para conocer a sus creadores y a sus sponsors pero se veran mas adelante.
-Para poder completar el formulario podes acceder al mismo de dos formas y con dos simples pasos.
+Tambien tiene otros apartados donde podrás editar tu perfil,ver la información de tu compra como por ejemplo:
+-mostrar los datos de la compra.
+-modificar los datos de la compra.
+-cancelar la compra.
+Tambien en la pagina podrás ver un apartado donde se conoce a los creadores.
 
+Para poder completar el formulario podes acceder al mismo de dos formas y con dos simples pasos.
 1- en la pantalla de inicio clikear en el boton "+ info sobre entradas" que te lleva a la seccion de "entradas" o ir directamente desde la barra de navegacion de la web al apartado "entradas"
 
 2- clickea en el boton "saca tus entradas!!" que te lleva al formulario o scrolea para abajo.
@@ -31,6 +36,13 @@ pasos obligatorios para poder complterar el formulario:
 
 3-cant de entradas que quiera comprar
 
-4- si tiene un hijo/a que participa
+4- una opinion sobre lo que le parecio la edicion 2022 del festival
 
-Si desea consultar en que estado se encuentra su compra, una vez que complete el formulario y lo envie se la llevara al apartado de "mis entradas" donde usted podra por medio de su nombre con el que se registro saber en que estado se encuentra su compra. los estados pueden ser: "ASEGURADAS","YA ENVIADAS" o le puede aparecer que no esta en nuestra base de datos
+5- método de pago
+
+Si desea consultar en que estado se encuentra su compra, una vez que complete el formulario y lo envie se la llevara al apartado de "mis entradas" donde usted podra 
+-mostrar los datos de la compra.
+-modificar los datos de la compra.
+-cancelar la compra.
+
+Si qiuere editar su perfil lo que puede hacer es ir al apartado donde esta su nombre de usuario en la barra navegadora de la web, la cual lo llevara a la parte de edición de perfil. Ahi podra cambiar su contraseña, su nombre de usuario, su mail y tambien agregar informacion extra como su nombre, su apellido y un avatar.
