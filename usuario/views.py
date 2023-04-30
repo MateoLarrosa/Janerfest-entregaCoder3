@@ -9,15 +9,15 @@ from django.contrib.auth.decorators import login_required
 from usuario.models import InfoExtra
 from django.urls import reverse_lazy
 
-from usuario.forms import MiFormularioDeCreacion,EdicionPerfil,MiFormularioCambioContraseña
+from usuario.forms import MiFormularioDeCreacion,EdicionPerfil,MiFormularioCambiocontrasenia
 # Create your views here.
 def login(request):
     if request.method == 'POST':
         formulario = AuthenticationForm(request, data=request.POST)
         if formulario.is_valid():
             nombre_usuario = formulario.cleaned_data.get('username')
-            contraseña = formulario.cleaned_data.get('password')
-            usuario = authenticate(username = nombre_usuario,password = contraseña)
+            contrasenia = formulario.cleaned_data.get('password')
+            usuario = authenticate(username = nombre_usuario,password = contrasenia)
             django_login(request,usuario)
             InfoExtra.objects.get_or_create(user=request.user)
             return redirect('entradas:index')
@@ -40,20 +40,25 @@ def registro(request):
 @login_required
 def editar_perfil(request):
     if request.method == 'POST':
-        formulario = EdicionPerfil(request.POST,request.FILES,instance=request.user)
+        formulario = EdicionPerfil(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
+            user = formulario.save()
+            user.infoextra.nombre = formulario.cleaned_data['nombre']
+            user.infoextra.apellido = formulario.cleaned_data['apellido']
             if formulario.cleaned_data.get('avatar'):
-                request.user.infoextra.avatar = formulario.cleaned_data.get('avatar')
-            request.user.infoextra.save()
-            formulario.save()
+                user.infoextra.avatar = formulario.cleaned_data['avatar']
+            user.infoextra.save()
             return redirect('usuario:editar_perfil')
-        else: 
+        else:
             return render(request,'usuarios/editar_perfil.html',{'formulario':formulario})
-    formulario = EdicionPerfil(initial={'avatar':request.user.infoextra.avatar}, instance=request.user)
+    formulario = EdicionPerfil(initial={'avatar':request.user.infoextra.avatar,
+                                         'nombre': request.user.infoextra.nombre,
+                                         'apellido': request.user.infoextra.apellido},
+                                instance=request.user)
     return render(request,'usuarios/editar_perfil.html',{'formulario':formulario})
 
 
-class CambioContraseña(PasswordChangeView):
-    form_class = MiFormularioCambioContraseña
-    template_name = 'usuarios/cambiar_contraseña.html'
+class Cambiocontrasenia(PasswordChangeView):
+    form_class = MiFormularioCambiocontrasenia
+    template_name = 'usuarios/cambiar_contrasenia.html'
     success_url = reverse_lazy('usuario:editar_perfil')

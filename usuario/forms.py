@@ -5,14 +5,13 @@ from django.core.exceptions import ValidationError
 
 class MiFormularioDeCreacion(UserCreationForm):
     email = forms.EmailField()
-    password1 = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
-    password2 = forms.CharField(label="Repetir contraseña", widget=forms.PasswordInput)
-    avatar = forms.ImageField(required=False)
+    password1 = forms.CharField(label="contrasenia", widget=forms.PasswordInput)
+    password2 = forms.CharField(label="Repetir contrasenia", widget=forms.PasswordInput)
 
     def clean_password1(self):
         password1 = self.cleaned_data.get('password1')
         if not any(char.isdigit() for char in password1):
-            raise forms.ValidationError("La contraseña debe contener al menos un número.")
+            raise forms.ValidationError("La contrasenia debe contener al menos un número.")
         return password1
 
     def clean_email(self):
@@ -31,33 +30,34 @@ class MiFormularioDeCreacion(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2','avatar']
+        fields = ['username', 'email', 'password1', 'password2']
         help_texts = {k: '' for k in fields}
 
 
-class MiFormularioCambioContraseña(PasswordChangeForm):
+class MiFormularioCambiocontrasenia(PasswordChangeForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
-        # Modificar el campo new_password1 para eliminar la especificación de longitud
         self.fields['new_password1'].help_text = None
 
 class EdicionPerfil(UserChangeForm):
     username = forms.CharField(label="Nombre de usuario", max_length=30, required=True)
-    email = forms.EmailField(required=True, help_text="Ingrese un email válido.")
-    first_name = forms.CharField(label = "Nombre", max_length=20)
-    last_name = forms.CharField(label = "Apellido", max_length=20)
+    email = forms.EmailField(required=True)
+    nombre = forms.CharField(label="Nombre", max_length=20)
+    apellido = forms.CharField(label="Apellido", max_length=20)
     avatar = forms.ImageField(required=False)
-    password = None # Eliminar el campo de contraseña
+    password = None
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].initial = self.instance.username
         self.fields['email'].initial = self.instance.email
+        self.fields['nombre'].initial = self.instance.infoextra.nombre
+        self.fields['apellido'].initial = self.instance.infoextra.apellido
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name', 'avatar']
+        fields = ['username', 'email', 'avatar']
 
     def clean_email(self):
         email = self.cleaned_data['email'].lower()
@@ -78,7 +78,6 @@ class EdicionPerfil(UserChangeForm):
         if commit:
             user.save()
         return user
-
 
 
     

@@ -24,30 +24,26 @@
         <div class="row gx-4 gx-lg-5">
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="mt-5">
-                    <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
                     <h3 class="h4 mb-2">entradas</h3>
-                    <p class="text-muted mb-0">5</p>
+                    <p class="text-muted mb-0">{{cliente.cant_entradas}}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="mt-5">
-                    <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
-                    <h3 class="h4 mb-2">consumiciones de bebidas</h3>
-                    <p class="text-muted mb-0">2 coca-cola</p>
+                    <h3 class="h4 mb-2">fecha de compra</h3>
+                    <p class="text-muted mb-0">{{cliente.created_at|date:"d/m/Y"}}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="mt-5">
-                    <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
-                    <h3 class="h4 mb-2">consumiciones de comidas</h3>
-                    <p class="text-muted mb-0">2 hamburguesas</p>
+                    <h3 class="h4 mb-2">Metodo de pago</h3>
+                    <p class="text-muted mb-0">{{cliente.metodo_pago}}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="mt-5">
-                    <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
-                    <h3 class="h4 mb-2">merchandaising</h3>
-                    <p class="text-muted mb-0">2 remera y 2 gorras</p>
+                    <h3 class="h4 mb-2">mail registrado</h3>
+                    <p class="text-muted mb-0">{{cliente.mail}}</p>
                 </div>
             </div>
         </div>

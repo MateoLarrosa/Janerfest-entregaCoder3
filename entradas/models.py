@@ -13,7 +13,7 @@ class Cliente(models.Model):
     mail = models.CharField(max_length=30,)
     cant_entradas = models.IntegerField()
     metodo_pago = models.CharField(max_length=20, choices=OPCIONES_METODO_PAGO)
-    opinion = RichTextField()
+    opinion = RichTextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     

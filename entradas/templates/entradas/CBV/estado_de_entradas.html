@@ -2,7 +2,7 @@
 {% load static %}
 
 {%block title%}
-    <title>clientes</title>
+    <title>Mis entradas</title>
 {%endblock title%}
 
 {%block h1%}
@@ -10,53 +10,44 @@
 {%endblock h1%}
 
 {%block subtitle%}
-<p class="text-white-75 mb-5">podes averiguar en que estado se encuentran tus entradas!</p>
-<a class="btn btn-primary btn-xl" href="#contact">clickea aca!!</a>
+<p class="text-white-75 mb-5">Aca se mostraran tus compras, si no aparece nada es porque todavia no sacaste tus entradas!!!</p>
+<a class="btn btn-primary btn-xl" href="#Mensaje-consulta">clickea aca!!</a> 
+
 {%endblock subtitle%}
 
 
 {%block about%}
- {% comment %}    <p>
-        <form id="contact" action="#contact">
-            <h4>Ingrese su nombre para que lo busquemos en la base de datos</h4>
-            {{form}}
-            <button>buscar</button>
-        </form>
-    </p> {% endcomment %}
+{% if object_list %}
+  {% for cliente in object_list %}
+    {% if cliente.user == request.user %}
+      <div id="Mensaje-consulta">
+        <p>{{ cliente.nombre }} compraste {{ cliente.cant_entradas }} entradas. <br>
+          Puedes obtener más información sobre tu compra a continuación:
+        </p>
+        <div class="mostrar_compra">
+          <h4>Para ver con más detalles tu compra: </h4>
+          <a class="btn btn-primary" href="{% url 'entradas:mostrar_compra' cliente.id %}">Mostrar compra</a>
+        </div>
+        <div class="modificar_compra">
+          <h4>Si deseas modificar algún dato de tu compra ingresa aquí: </h4>
+          <a class="btn btn-warning" href="{% url 'entradas:modificar_compra' cliente.id %}">Modificar compra</a>
+        </div>
+        <div class="cancelar_compra">
+          <h4>Para cancelar tu compra ingresa aquí: </h4>
+          <a class="btn btn-danger" href="{% url 'entradas:cancelar_compra' cliente.id %}">Cancelar compra</a>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+{% else %}
+  <p>Aca apareceran tus compras, por el momento no tienes compras realizadas</p>
+{% endif %}
 
-    {% if object_list %}
-        {% for cliente in object_list %}
-        {% if cliente.user == request.user %}
-            <div id="Mensaje-consulta">
-                {% comment %} <p>Usted ya tiene {{cliente.cant_entradas}} entradas aseguradas, pronto le llegaran al mail! </p> {% endcomment %}
-            <ul>
-                <li>nombre: {{cliente.nombre}}</li>
-                <li>mail: {{cliente.mail}}</li>
-                <li>entradas compradas = {{cliente.cant_entradas}}</li>
-                <li>fecha de compra ={{cliente.created_at|date:"d/m/Y"}}</li>
-            </ul>
-            <p>Usted compro {{cliente.cant_entradas}} entradas el {{cliente.created_at|date:"d/m/Y"}}</p>
-            <div class="cancelar_compra">
-                <h4>Para cancelar la compra ingrese aqui: </h4>
-                <button><a class="navbar-brand" href={% url 'entradas:cancelar_compra' cliente.id %}>cancelar compra</a></button>
-            </div>
-            <div class="modificar_compra">
-                <h4>Si desea modificar algun dato de la compra ingrese aqui: </h4>
-                <button><a class="navbar-brand" href={% url 'entradas:modificar_compra' cliente.id %}>modificar compra</a></button>
-            </div>
-            <div class="mostrar_compra">
-                <h4>para ver con mas detalles su compra: </h4>
-                <button><a class="navbar-brand" href={% url 'entradas:mostrar_compra' cliente.id %}>mostrar compra</a></button>
-            </div>
-            </div>
-            {% endif %}
-        {% endfor %}
-    {%else%}
-    <p>No tiene compras realizadas hasta el momento</p>
-    {% endif %}    
+
+
     <style>
-    #Mensaje-consulta{
-        background-color: #c5d5c5;
-    }
+    #Mensaje-consulta {
+        background-color: #d1ecf1;
+     }
     </style>
     {%endblock about%}

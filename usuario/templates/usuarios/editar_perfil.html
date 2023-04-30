@@ -11,8 +11,8 @@
 
 
 {%block subtitle%}
-<p class="text-white-75 mb-5">segunda edicion del festival mas esperado por los chicos</p>
-<a class="btn btn-primary btn-xl" href="#nav-login">Accede a tu cuenta para visitar la pagina</a>
+<p class="text-white-75 mb-5">configuraciones de perfil</p>
+<a class="btn btn-primary btn-xl" href="#nav-login">edita tu perfil!</a>
 {%endblock subtitle%}
 
 {%block about%}
@@ -20,12 +20,12 @@
 <p style="color: red">Hay  errores al querer modificar el formulario</p>
 {% endif %}
 <div id="nav-login">
-    <form action={%url 'usuario:editar_perfil' %} method="post" enctype = 'multipart/from-data'>
+    <form action={%url 'usuario:editar_perfil' %} method="post" enctype = 'multipart/form-data'>
         {%csrf_token%}
         <table>
             {{formulario}}
         </table>
-        <button type='button'><a class="navbar-brand" href={% url 'usuario:cambiar_contraseña' %}>Cambiar contraseña</a></button>
+        <button type='button'><a class="navbar-brand" href={% url 'usuario:cambiar_contrasenia' %}>Cambiar contrasenia</a></button>
         <button>editar</button>
     </form>
 </div>
