@@ -7,3 +7,6 @@ class InfoExtra(models.Model):
     apellido = models.TextField(max_length=20)
     avatar = models.ImageField(upload_to='avatares', null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='infoextra')
+    
+    def __str__(self):
+        return f'{self.nombre}. {self.apellido} {self.avatar}.'
