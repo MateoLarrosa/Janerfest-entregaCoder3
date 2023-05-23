@@ -10,37 +10,42 @@
 {%endblock h1%}
 
 {%block subtitle%}
-<p class="text-white-75 mb-5">Aca se mostraran tus compras, si no aparece nada es porque todavia no sacaste tus entradas!!!</p>
+<p class="text-white-75 mb-5"></p>
 <a class="btn btn-primary btn-xl" href="#Mensaje-consulta">clickea aca!!</a> 
 
 {%endblock subtitle%}
 
 
 {%block about%}
-{% if object_list %}
-  {% for cliente in object_list %}
-    {% if cliente.user == request.user %}
-      <div id="Mensaje-consulta">
-        <p>{{ cliente.nombre }} compraste {{ cliente.cant_entradas }} entradas. <br>
-          Puedes obtener más información sobre tu compra a continuación:
-        </p>
-        <div class="mostrar_compra">
-          <h4>Para ver con más detalles tu compra: </h4>
-          <a class="btn btn-primary" href="{% url 'entradas:mostrar_compra' cliente.id %}">Mostrar compra</a>
+
+{% if cliente.flag == True %}
+    {% if object_list %}
+    {% for cliente in object_list %}
+        {% if cliente.user == request.user %}
+        <div id="Mensaje-consulta">
+            <p>{{ cliente.nombre }} compraste {{ cliente.cant_entradas }} entradas. <br>
+            Puedes obtener más información sobre tu compra a continuación:
+            </p>
+            <div class="mostrar_compra">
+                <h4>Para ver con más detalles tu compra: </h4>
+                <a class="btn btn-primary" href="{% url 'entradas:mostrar_compra' cliente.id %}">Mostrar compra</a>
+            </div>
+            <div class="modificar_compra">
+                <h4>Si deseas modificar algún dato de tu compra ingresa aquí: </h4>
+                <a class="btn btn-warning" href="{% url 'entradas:modificar_compra' cliente.id %}">Modificar compra</a>
+            </div>
+            <div class="cancelar_compra">
+                <h4>Para cancelar tu compra ingresa aquí: </h4>
+                <a class="btn btn-danger" href="{% url 'entradas:cancelar_compra' cliente.id %}">Cancelar compra</a>
+            </div>
         </div>
-        <div class="modificar_compra">
-          <h4>Si deseas modificar algún dato de tu compra ingresa aquí: </h4>
-          <a class="btn btn-warning" href="{% url 'entradas:modificar_compra' cliente.id %}">Modificar compra</a>
-        </div>
-        <div class="cancelar_compra">
-          <h4>Para cancelar tu compra ingresa aquí: </h4>
-          <a class="btn btn-danger" href="{% url 'entradas:cancelar_compra' cliente.id %}">Cancelar compra</a>
-        </div>
-      </div>
+        {% endif %}
+    {% endfor %}
+    {% else %}
+        <p>Aca apareceran tus compras, por el momento no tienes compras realizadas</p>
     {% endif %}
-  {% endfor %}
 {% else %}
-  <p>Aca apareceran tus compras, por el momento no tienes compras realizadas</p>
+ <p>Aca apareceran tus compras, por el momento no tienes compras realizadas</p>   
 {% endif %}
 
 

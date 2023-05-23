@@ -41,11 +41,11 @@
                     {% if request.user.infoextra.avatar %}
                     <img src={{request.user.infoextra.avatar.url}} alt="avatar" height="40px">
                     {% endif %}
-                    <li class="nav-item"><a class="nav-link" href="{%url 'usuario:editar_perfil'%}">{{request.user.username}}</a></li>
-                    <li class="nav-item"><a class="nav-link" href= {%url 'usuario:logout'%}>cerrar sesión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{%url 'usuario:mostrar_perfil'%}">{{request.user.username}}</a></li>
+                    <li class="nav-item"><a class="nav-link" href= "{%url 'usuario:logout'%}">cerrar sesión</a></li>
                     {% elif not request.user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link" href= {%url 'usuario:login'%}>inicia sesion</a></li>
-                    <li class="nav-item"><a class="nav-link" href= {%url 'usuario:registro'%}>registrarse</a></li>
+                    <li class="nav-item"><a class="nav-link" href= "{%url 'usuario:login'%}">inicia sesion</a></li>
+                    <li class="nav-item"><a class="nav-link" href= "{%url 'usuario:registro'%}">registrarse</a></li>
                     {%endif%}
                     
                 </ul>

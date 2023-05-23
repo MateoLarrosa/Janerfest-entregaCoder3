@@ -1,0 +1,64 @@
+{% extends 'genericos/base.html' %}
+{% load static %}
+
+{%block title%}
+    <title>Mi perfil</title>
+{%endblock title%}
+
+{%block h1%}
+<h1 class="text-white font-weight-bold">Mi perfil</h1>
+{%endblock h1%}
+
+
+{%block subtitle%}
+<p class="text-white-75 mb-5">segunda edicion del festival mas esperado por los chicos</p>
+<a class="btn btn-primary btn-xl" href="#nav-login">Aca podes ver tus datos</a>
+{%endblock subtitle%}
+
+{%block about%}
+<section class="page-section" id="services">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center mt-0">Tus datos</h2>
+        <hr class="divider" />
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <h3 class="h4 mb-2">nombre</h3>
+                    <p class="text-muted mb-0">{{InfoExtra.nombre}}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <h3 class="h4 mb-2">mail</h3>
+                    <p class="text-muted mb-0">{{InfoExtra.mail}}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <h3 class="h4 mb-2">descricpion</h3>
+                    <p class="text-muted mb-0">{{InfoExtra.descripcion}}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <h3 class="h4 mb-2">link de pagina</h3>
+                    <p class="text-muted mb-0">{{InfoExtra.link_a_pagina}}</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <h3 class="h4 mb-2">avatar</h3>
+                    <p class="text-muted mb-0">{{InfoExtra.avatar}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="modificar_perfil">
+        <h4>Si deseas modificar alguno de tus datos ingrese aqui </h4>
+        <a class="btn btn-warning" href="{% url 'usuario:editar_perfil'%}">Modificar perfil</a>
+    </div>
+</section>
+{%endblock about%}

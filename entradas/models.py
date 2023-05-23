@@ -15,6 +15,11 @@ class Cliente(models.Model):
     metodo_pago = models.CharField(max_length=20, choices=OPCIONES_METODO_PAGO)
     opinion = RichTextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    flag = models.BooleanField(default=False)
+    
+    def realizar_compra(self):
+        self.flag = True
+        self.save()
 
     
     def __str__(self):

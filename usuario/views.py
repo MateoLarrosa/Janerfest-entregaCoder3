@@ -1,13 +1,20 @@
-from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth import authenticate, login as django_login
-from django.shortcuts import redirect
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from usuario.models import InfoExtra
 from django.urls import reverse_lazy
+from django.views.generic.detail import DetailView
+
+from django.shortcuts import render,redirect
+from django.http import HttpResponse
+from django.template import Template,Context,loader
+
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+
 
 from usuario.forms import MiFormularioDeCreacion,EdicionPerfil,MiFormularioCambiocontrasenia
 # Create your views here.
@@ -62,3 +69,9 @@ class Cambiocontrasenia(PasswordChangeView):
     form_class = MiFormularioCambiocontrasenia
     template_name = 'usuarios/cambiar_contrasenia.html'
     success_url = reverse_lazy('usuario:editar_perfil')
+    
+class MostrarPerfil(LoginRequiredMixin,DetailView):
+    model = InfoExtra
+    template_name = f"usuarios/mostrar_perfil.html"
+    success_url = reverse_lazy('usuarios:mostrar_perfil')
+    fields = ['nombre', 'mail', 'descripción', 'link_a_pagina','avatar']

@@ -26,19 +26,31 @@ class EstadoDeEntradas(LoginRequiredMixin, ListView):
     model = Cliente
     template_name = "entradas/CBV/estado_de_entradas.html"
     success_url = '/entradas/'
-    fields = ['nombre','created_at']
-
+    fields = ['nombre','created_at','flag']
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['flag'] = False
+        for cliente in context['object_list']:
+            if cliente.user == self.request.user:
+                context['flag'] = True
+                break
+        return context
 
 
 class ComprarEntradas(LoginRequiredMixin, CreateView):
     model = Cliente
     template_name = "entradas/CBV/comprar_entradas.html"
     success_url = reverse_lazy('entradas:index')
-    fields = ['nombre', 'mail', 'cant_entradas', 'opinion','metodo_pago']
+    fields = ['nombre', 'mail', 'cant_entradas', 'opinion', 'metodo_pago']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        return super().form_valid(form)
+        response = super().form_valid(form)
+        self.object.realizar_compra()  # Llama al método realizar_compra() en la instancia de Cliente
+        return response
+
+    
 
     
 class ModificarCompra(LoginRequiredMixin,UpdateView):
