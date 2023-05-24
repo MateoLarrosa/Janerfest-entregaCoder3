@@ -42,7 +42,7 @@ class ComprarEntradas(LoginRequiredMixin, CreateView):
     model = Cliente
     template_name = "entradas/CBV/comprar_entradas.html"
     success_url = reverse_lazy('entradas:index')
-    fields = ['nombre', 'mail', 'cant_entradas', 'opinion', 'metodo_pago']
+    fields = ['nombre', 'mail', 'cant_entradas', 'opinion', 'metodo_pago','imagen']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -68,4 +68,4 @@ class MostrarCompra(LoginRequiredMixin,DetailView):
     model = Cliente
     template_name = "entradas/CBV/mostrar_compra.html"
     success_url = reverse_lazy('entradas:index')
-    fields = ['nombre', 'mail', 'cant_entradas', 'opinion','metodo_pago']
+    fields = ['nombre', 'mail', 'cant_entradas', 'opinion','metodo_pago','imagen']

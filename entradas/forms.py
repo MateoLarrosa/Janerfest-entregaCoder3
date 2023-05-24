@@ -12,6 +12,7 @@ class FormularioComprarEntradas(forms.Form):
         widget=forms.TextInput(attrs={'placeholder': 'Ingrese su opinión aquí'}),
         help_text='Deje su opinión sobre la edición del janerfest 2022 y cómo se enteró de ella.'
     )
+    imagen = forms.ImageField()
 
 class ModificarCompra(forms.Form):
     nombre = forms.CharField(max_length=20,widget=forms.TextInput(attrs={'placeholder': 'Inrese su nombre'}))
