@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm,PasswordChangeForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from ckeditor.fields import RichTextField
 
 class MiFormularioDeCreacion(UserCreationForm):
     email = forms.EmailField()
@@ -46,6 +47,8 @@ class EdicionPerfil(UserChangeForm):
     nombre = forms.CharField(label="Nombre", max_length=20)
     apellido = forms.CharField(label="Apellido", max_length=20)
     avatar = forms.ImageField(required=False)
+    descripcion = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 40}))
+    url = forms.URLField()
     password = None
 
     def __init__(self, *args, **kwargs):

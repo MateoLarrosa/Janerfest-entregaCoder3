@@ -51,17 +51,22 @@ def editar_perfil(request):
         if formulario.is_valid():
             user = formulario.save()
             user.infoextra.nombre = formulario.cleaned_data['nombre']
-            user.infoextra.apellido = formulario.cleaned_data['apellido']
+            user.infoextra.mail = formulario.cleaned_data['email']
+            user.infoextra.descripcion = formulario.cleaned_data['descripcion']
+            user.infoextra.link_a_pagina = formulario.cleaned_data['url']
             if formulario.cleaned_data.get('avatar'):
                 user.infoextra.avatar = formulario.cleaned_data['avatar']
             user.infoextra.save()
             return redirect('usuario:editar_perfil')
         else:
             return render(request,'usuarios/editar_perfil.html',{'formulario':formulario})
-    formulario = EdicionPerfil(initial={'avatar':request.user.infoextra.avatar,
-                                         'nombre': request.user.infoextra.nombre,
-                                         'apellido': request.user.infoextra.apellido},
-                                instance=request.user)
+    formulario = EdicionPerfil(initial={'avatar': request.user.infoextra.avatar,
+    'nombre': request.user.infoextra.nombre,
+    'apellido': request.user.infoextra.apellido,
+    'email': request.user.infoextra.mail,
+    'descripcion': request.user.infoextra.descripcion,
+    'link_a_pagina': request.user.infoextra.link_a_pagina,},
+                               instance=request.user)
     return render(request,'usuarios/editar_perfil.html',{'formulario':formulario})
 
 
@@ -70,8 +75,15 @@ class Cambiocontrasenia(PasswordChangeView):
     template_name = 'usuarios/cambiar_contrasenia.html'
     success_url = reverse_lazy('usuario:editar_perfil')
     
-class MostrarPerfil(LoginRequiredMixin,DetailView):
+class MostrarPerfil(LoginRequiredMixin, DetailView):
     model = InfoExtra
-    template_name = f"usuarios/mostrar_perfil.html"
-    success_url = reverse_lazy('usuarios:mostrar_perfil')
-    fields = ['nombre', 'mail', 'descripción', 'link_a_pagina','avatar']
+    template_name = "usuarios/mostrar_perfil.html"
+
+    def get_object(self, queryset=None):
+        # Obtener el objeto InfoExtra asociado al usuario actual
+        return self.request.user.infoextra
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['InfoExtra'] = self.get_object()  # Pasar el objeto InfoExtra al contexto
+        return context

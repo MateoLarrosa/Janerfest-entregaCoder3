@@ -1,21 +1,20 @@
 {% extends 'genericos/base.html' %}
 {% load static %}
 
-{%block title%}
+{% block title %}
     <title>Mi perfil</title>
-{%endblock title%}
+{% endblock title %}
 
-{%block h1%}
+{% block h1 %}
 <h1 class="text-white font-weight-bold">Mi perfil</h1>
-{%endblock h1%}
+{% endblock h1 %}
 
-
-{%block subtitle%}
+{% block subtitle %}
 <p class="text-white-75 mb-5">segunda edicion del festival mas esperado por los chicos</p>
 <a class="btn btn-primary btn-xl" href="#nav-login">Aca podes ver tus datos</a>
-{%endblock subtitle%}
+{% endblock subtitle %}
 
-{%block about%}
+{% block about %}
 <section class="page-section" id="services">
     <div class="container px-4 px-lg-5">
         <h2 class="text-center mt-0">Tus datos</h2>
@@ -23,42 +22,51 @@
         <div class="row gx-4 gx-lg-5">
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="mt-5">
-                    <h3 class="h4 mb-2">nombre</h3>
-                    <p class="text-muted mb-0">{{InfoExtra.nombre}}</p>
+                    <h3 class="h4 mb-2">Nombre</h3>
+                    <p class="text-muted mb-0">{{ object.nombre }}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="mt-5">
-                    <h3 class="h4 mb-2">mail</h3>
-                    <p class="text-muted mb-0">{{InfoExtra.mail}}</p>
+                    <h3 class="h4 mb-2">Mail</h3>
+                    <p class="text-muted mb-0">{{ object.mail }}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="mt-5">
-                    <h3 class="h4 mb-2">descricpion</h3>
-                    <p class="text-muted mb-0">{{InfoExtra.descripcion}}</p>
+                    <h3 class="h4 mb-2">Descripción</h3>
+                    <p class="text-muted mb-0">{{ object.descripcion }}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="mt-5">
-                    <h3 class="h4 mb-2">link de pagina</h3>
-                    <p class="text-muted mb-0">{{InfoExtra.link_a_pagina}}</p>
+                    <h3 class="h4 mb-2">Link de página</h3>
+                    <p class="text-muted mb-0">{{ object.link_a_pagina }}</p>
                 </div>
             </div>
+           <!-- ... resto del código ... -->
+
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="mt-5">
-                    <h3 class="h4 mb-2">avatar</h3>
-                    <p class="text-muted mb-0">{{InfoExtra.avatar}}</p>
+                    <h3 class="h4 mb-2">Avatar</h3>
+                     {% if object.avatar %}
+                     <img src="{{ object.avatar.url }}" alt="Avatar" class="avatar-image">
+                    {% else %}
+                    <p class="text-muted mb-0">No cargaste un avatar por el momento</p>
+                    {% endif %}
                 </div>
             </div>
+
+<!-- ... resto del código ... -->
+
         </div>
     </div>
 </section>
 
 <section>
     <div class="modificar_perfil">
-        <h4>Si deseas modificar alguno de tus datos ingrese aqui </h4>
-        <a class="btn btn-warning" href="{% url 'usuario:editar_perfil'%}">Modificar perfil</a>
+        <h4>Si deseas modificar alguno de tus datos, ingresa aquí</h4>
+        <a class="btn btn-warning" href="{% url 'usuario:editar_perfil' %}">Modificar perfil</a>
     </div>
 </section>
-{%endblock about%}
+{% endblock about %}

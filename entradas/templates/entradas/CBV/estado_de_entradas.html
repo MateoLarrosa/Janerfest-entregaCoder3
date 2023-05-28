@@ -17,8 +17,6 @@
 
 
 {%block about%}
-
-{% if cliente.flag == True %}
     {% if object_list %}
     {% for cliente in object_list %}
         {% if cliente.user == request.user %}
@@ -44,9 +42,6 @@
     {% else %}
         <p>Aca apareceran tus compras, por el momento no tienes compras realizadas</p>
     {% endif %}
-{% else %}
- <p>Aca apareceran tus compras, por el momento no tienes compras realizadas</p>   
-{% endif %}
 
 
 

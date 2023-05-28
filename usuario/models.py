@@ -10,7 +10,7 @@ class InfoExtra(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='infoextra')
     mail = models.EmailField()
     link_a_pagina =  models.URLField( max_length=400)
-    descripción = RichTextField()
+    descripcion = RichTextField()
     
     def __str__(self):
         return f'{self.nombre}. {self.apellido} {self.avatar}.'
