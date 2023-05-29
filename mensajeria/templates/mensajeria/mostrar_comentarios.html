@@ -1,0 +1,78 @@
+
+{% extends 'genericos/base.html' %}
+{% load static %}
+
+{%block title%}
+    <title>mostrar compra</title>
+{%endblock title%}
+
+{%block h1%}
+<h1 class="text-white font-weight-bold">comentarios</h1>
+{%endblock h1%}
+
+{%block subtitle%}
+<p class="text-white-75 mb-5">Imagenes exclusivas de los ensayos</p>
+<a class="btn btn-primary btn-xl" href="#services">clickea aca para ver mas!!</a>
+{%endblock subtitle%}
+
+
+{%block about%}
+
+<div class="gallery">
+    <div class="image">
+      <img src="../../static/entradas/assets/img/head.jpg" alt="Imagen 1">
+    </div>
+    <div class="image">
+      <img src="../../static/entradas/assets/img/head.jpg" alt="Imagen 2">
+    </div>
+    <div class="image">
+      <img src="../../static/entradas/assets/img/head.jpg" alt="Imagen 3">
+    </div>
+  </div>
+  
+<h1>Mostrar Comentarios</h1>
+<ul>
+    {% for comentario in comentarios %}
+        <li>
+            <strong>{{ comentario.emisor }}</strong>
+            {% if comentario.receptor %}
+                <em>Respuesta a: {{ comentario.receptor.emisor }}</em>
+            {% endif %}
+            <br>
+            <a href="{% url 'mensajeria:responder_comentario' comentario.id %}">Responder</a>
+        </li>
+    {% endfor %}
+</ul>
+<h2>Crear Comentario</h2>
+<form method="post" action="{% url 'mensajeria:crear_comentario' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Crear</button>
+</form>
+
+<style>
+
+    .gallery {
+        margin: 10px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Ajusta el número de columnas según necesites */
+        gap: 10px; /* Espacio entre las imágenes */
+      }
+      
+      .image {
+        position: relative;
+        padding-bottom: 100%; /* Proporción para mantener el aspecto cuadrado de las imágenes */
+        overflow: hidden;
+      }
+      
+      .image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+</style>
+{%endblock about%}

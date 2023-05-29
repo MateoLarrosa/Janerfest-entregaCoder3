@@ -48,7 +48,7 @@ class EdicionPerfil(UserChangeForm):
     apellido = forms.CharField(label="Apellido", max_length=20)
     avatar = forms.ImageField(required=False)
     descripcion = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 40}))
-    url = forms.URLField()
+    url = forms.URLField(required=False)
     password = None
 
     def __init__(self, *args, **kwargs):

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responder Comentario</title>
+</head>
+<body>
+    <h1>Responder Comentario</h1>
+    <form method="post" action="{% url 'mensajeria:responder_comentario' comentario.id %}">
+        {% csrf_token %}
+        {{ respuesta_form.as_p }}
+        <button type="submit">Enviar respuesta</button>
+    </form>
+</body>
+</html>

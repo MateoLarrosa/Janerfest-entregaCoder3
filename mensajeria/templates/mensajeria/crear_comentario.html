@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Comentario</title>
+</head>
+<body>
+    <h1>Crear Comentario</h1>
+    <form method="post" action="{% url 'mensajeria:crear_comentario' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar comentario</button>
+    </form>
+</body>
+</html>
